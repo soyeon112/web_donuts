@@ -1,0 +1,315 @@
+<html>
+    <head>
+        <title>Hot Now</title>
+        <meta charset="utf-8">
+        <!--JQuery로 Ajax하여 읽어오기 위해 import-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div id = popup>
+            <div class = "top_text">
+                <p>Today Hot Light Hour</p>
+            </div>
+            <div class="main"></div>
+            <div class = "main_text">
+                <p><span>HOT NOW</span> 등의 켜지고 따뜻하고 달콤한 도넛이 나오는 시간입니다.</p>
+                <p>현재 <span id="main_t_num">0</span>개의 매장에 <span>HOT NOW</span> 등이 켜졌습니다.</p>
+            </div>
+            <div class = "day_time_select">
+                <div class ="today_time">
+                    <h2 id ="today_text">5/11(수)</h2>
+                    <h2 class ="date_time_red" id = "date_time_red">00:00</h2>
+                </div>
+                <div class ="input_time">
+                    <form>
+                        <select name = "sel_time_li" id = "sel_time_li">
+                            <option value="7" selected>7:00</option>
+                            <option value="8">8:00</option>
+                            <option value="9">9:00</option>
+                            <option value="10">10:00</option>
+                            <option value="11">11:00</option>
+                            <option value="12">12:00</option>
+                            <option value="13">13:00</option>
+                            <option value="14">14:00</option>
+                            <option value="15">15:00</option>
+                            <option value="16">16:00</option>
+                            <option value="17">17:00</option>
+                            <option value="18">18:00</option>
+                            <option value="19">19:00</option>
+                            <option value="20">20:00</option>
+                            <option value="21">21:00</option>
+                            <option value="22">22:00</option>
+                            <option value="23">23:00</option>
+                            <option value="24">24:00</option>
+                        </select>
+                    </form>
+                   <img onclick = "enter_btn_click()" id="enter_btn" src="imges/btn_enter.png" alt="확인버튼">
+                </div>
+            </div>
+            <div id = "noneText"> </div>
+            
+            <div id = "storeInfo">
+                <div id = "suwon" class ="contents">
+                    <div id = "sto_photo">
+                        <img id="sto_img" id = "stimg" src = "imges/-.jpg" alt="수원인계점" width="200" height="150">
+                    </div>
+                    <div id = "sto_title">
+                        <ul id ="ul">
+                            <li class = "sto_tit_text" id ="stname">수원인계점</li>
+                            <li class = "sto_time_text" id ="sttime">영업시간 : 월~일 09:00 ~ 23:00</li>
+                            <li><a href=""><img src="imges/btn_go.png" alt ="바로가기버튼"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id = "daechi" class ="contents">
+                    <div id = "sto_photo">
+                        <img id="sto_img" id = "stimg" src = "imges/대치점 매장 정면 사진.jpg" alt="대치점" width="200" height="150">
+                    </div>
+                    <div id = "sto_title">
+                        <ul id ="ul">
+                            <li class = "sto_tit_text" id ="stname">대치점</li>
+                            <li class = "sto_time_text" id ="sttime">영업시간 : 월~일 08:00 ~ 22:00</li>
+                            <li><a href=""><img src="imges/btn_go.png" alt ="바로가기버튼"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id = "daejeon" class ="contents">
+                    <div id = "sto_photo">
+                        <img id="sto_img" id = "stimg" src = "imges/대전둔산점 매장 정면 사진.jpg" alt="대전둔산점" width="200" height="150">
+                    </div>
+                    <div id = "sto_title">
+                        <ul id ="ul">
+                            <li class = "sto_tit_text" id ="stname">대전둔산점</li>
+                            <li class = "sto_time_text" id ="sttime">영업시간 : 월~일 06:00 ~ 24:00</li>
+                            <li><a href=""><img src="imges/btn_go.png" alt ="바로가기버튼"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id = "konkuk" class ="contents">
+                    <div id = "sto_photo">
+                        <img id="sto_img" id = "stimg" src = "imges/건대스타시티점 매장 안 내부 측면 사진.jpg" alt="건대스타시티점" width="200" height="150">
+                    </div>
+                    <div id = "sto_title">
+                        <ul id ="ul">
+                            <li class = "sto_tit_text" id ="stname">건대스타시티점</li>
+                            <li class = "sto_time_text" id ="sttime">영업시간 : 월~일 09:00 ~ 23:00</li>
+                            <li><a href=""><img src="imges/btn_go.png" alt ="바로가기버튼"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id = "wonju" class ="contents">
+                    <div id = "sto_photo">
+                        <img id="sto_img" id = "stimg" src = "imges/원주무실점 매장사진.jpg" alt="원주무실점" width="200" height="150">
+                    </div>
+                    <div id = "sto_title">
+                        <ul id ="ul">
+                            <li class = "sto_tit_text" id ="stname">원주무실점</li>
+                            <li class = "sto_time_text" id ="sttime">영업시간 : 월~일 10:00 ~ 21:00</li>
+                            <li><a href=""><img src="imges/btn_go.png" alt ="바로가기버튼"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id = "ulsan" class ="contents">
+                    <div id = "sto_photo">
+                        <img id="sto_img" id = "stimg" src = "imges/울산삼산점 매장 카운터 측면 사진.jpg" alt="울산삼산점" width="200" height="150">
+                    </div>
+                    <div id = "sto_title">
+                        <ul id ="ul">
+                            <li class = "sto_tit_text" id ="stname">울산삼산점</li>
+                            <li class = "sto_time_text" id ="sttime">영업시간 : 월~일 09:00 ~ 22:00</li>
+                            <li><a href=""><img src="imges/btn_go.png" alt ="바로가기버튼"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id = "gimhae" class ="contents">
+                    <div id = "sto_photo">
+                        <img id="sto_img" id = "stimg" src = "imges/김해봉황점.jpg" alt="김해봉황점" width="200" height="150">
+                    </div>
+                    <div id = "sto_title">
+                        <ul id ="ul">
+                            <li class = "sto_tit_text" id ="stname">김해봉황점</li>
+                            <li class = "sto_time_text" id ="sttime">영업시간 : 월~일 08:00 ~ 23:00</li>
+                            <li><a href=""><img src="imges/btn_go.png" alt ="바로가기버튼"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id = "yeongdeungpo" class ="contents">
+                    <div id = "sto_photo">
+                        <img id="sto_img" id = "stimg" src = "imges/영등포점 매장 내부 사진.jpg" alt="영등포점" width="200" height="150">
+                    </div>
+                    <div id = "sto_title">
+                        <ul id ="ul">
+                            <li class = "sto_tit_text" id ="stname">영등포점</li>
+                            <li class = "sto_time_text" id ="sttime">영업시간 : 월~일 08:00 ~ 22:00</li>
+                            <li><a href=""><img src="imges/btn_go.png" alt ="바로가기버튼"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id = "lottegimhae" class ="contents">
+                    <div id = "sto_photo">
+                        <img id="sto_img" id = "stimg" src = "imges/-.jpg" alt="롯데김해아울렛점" width="200" height="150">
+                    </div>
+                    <div id = "sto_title">
+                        <ul id ="ul">
+                            <li class = "sto_tit_text" id ="stname">롯데김해아울렛점</li>
+                            <li class = "sto_time_text" id ="sttime">영업시간 : 월~일 11:00 ~ 21:00</li>
+                            <li><a href=""><img src="imges/btn_go.png" alt ="바로가기버튼"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+            var storename = [];
+            var storetime = [];
+            var storeImgname = [];
+            
+            let selectTime; //선택한 시간
+
+            const storeID_List = {
+                //key:value
+                suwon : '수원인계점',
+                daechi : '대치점',
+                daejeon : '대전둔산점',
+                konkuk : '건대스타시티점',
+                wonju : '원주무실점',
+                ulsan : '울산삼산점',
+                gimhae : '김해봉황점',  
+                yeongdeungpo : '영등포점',
+                lottegimhae : '롯데김해아울렛점',
+            };
+
+            let firstCount = 0;
+            //store tage hide all 
+            $(document).ready(function(){
+                for(let i = 0; i < 9; i++){
+                    $(document.getElementById('storeInfo').children[i]).hide();
+                }
+                firstCount = 1;
+                sel_time_li();
+
+            })
+
+            //오늘 날짜와 현재 시간 출력 
+            var today = new Date()
+            var current_time = new Date()
+
+            var minutes = today.getMinutes();
+            minutes = minutes > 9 ? minutes : '0' + minutes; //0-9분 일때 출력 형식
+
+            document.getElementById("today_text").innerHTML = ( today.getMonth()+1 +'/'+ today.getDate() )  //오늘날짜
+            document.getElementById("date_time_red").innerHTML = (today.getHours() +':' + minutes);  //현재시간
+
+            let cur_time = today.getHours();
+  
+            function CheckValue(){
+                //초기화
+                storename.length = 0; 
+                storetime.length = 0; 
+                storeImgname.length = 0; 
+
+                for(let i = 0; i < 9 ; i++){
+                    if(document.getElementById('storeInfo').children[i].style.display === 'none'){
+                        console.log('none');
+                    }else{
+                        document.getElementById('storeInfo').children[i].style.display ='none';
+                        console.log(document.getElementById('storeInfo').children[i]);
+                    }
+                }
+            }
+          
+            // 시간선택 > 검색버튼 클릭시 실행되는 함수
+            function enter_btn_click(){  
+                select_val = document.getElementsByName("sel_time_li").values;
+                CheckValue();   
+                sel_time_li();
+            }
+            
+            //스토어 데이터 출력 함수
+            function sel_time_li(){  
+
+                if(firstCount == 1){
+                    selectTime = cur_time;
+                    firstCount = 2;
+                }
+                else{
+                    var forms = document.forms[0];
+                    document.getElementById("date_time_red").innerHTML = forms.sel_time_li.options[forms.sel_time_li.selectedIndex].text;
+                    selectTime = forms.sel_time_li.options[forms.sel_time_li.selectedIndex].value; //선택시간대 저장
+                }
+               
+                //선택된 시간에 따른 json파일에서 값 출력
+                $.getJSON('hotnow_data.json',function(data){
+                
+                    for(key in data){
+                        if(data[key].time == selectTime){ //선택된 시간대
+                            if(data[key].store == 'NONE' && Boolean(document.getElementById('noneText_p'))===false){  
+                                AddNoneText();  //None text 출력
+                                
+                            }  
+                            else if(data[key].store == 'NONE' && Boolean(document.getElementById('noneText_p'))===true){
+                                console.log('none은 한개만');
+                            }
+                            else{
+                                if(Boolean(document.getElementById('noneText_p'))===true){ 
+                                    DeleteNoneText(noneText); //None text 삭제
+                                }
+                                else{
+                                    let name = data[key].store; 
+                                    storename.push(name);
+
+                                    let time = data[key].times;
+                                    storetime.push(time);
+
+                                    let imgname = data[key].imgname;
+                                    storeImgname.push(imgname);
+                                }
+                            }
+                        }
+                    }
+                    for(let i = 0 ; i<storename.length; i++){
+                        console.log('dddddd');
+                        let sto_count = storename.length;
+                        console.log(storename[i]);
+                        ShowTage(storeID_List,storename[i],sto_count);
+                    }
+                });
+            }
+
+            //none text 태그 생성 함수
+            function AddNoneText(){  
+                document.getElementById('main_t_num').innerHTML = 0;
+                let noneText = document.createElement("p");
+                noneText.innerHTML = 'HOT NOW 등이 켜진 매장이 없습니다.';
+                noneText.setAttribute('id','noneText_p');
+                noneText.style.color = '#eb1943'; 
+                noneText.style.fontSize='13px';
+                noneText.style.marginTop='20px';
+                noneText.style.textAlign='center';
+                document.getElementById('noneText').appendChild(noneText);
+            }
+
+           //none text 태그 삭제 함수
+           function DeleteNoneText(){ 
+               let delNoneText = document.getElementById('noneText_p');
+               let parentObj = delNoneText.parentNode;
+               parentObj.removeChild(delNoneText);
+           }
+
+           //스토어 데이터 show & hide
+           function ShowTage(object, name, sto_count){
+               console.log('showTage');
+               //객체에서 id 찾아서 해당 id의 태그를 show
+                let id = Object.keys(object).find(key => object[key] == name);
+                //$('#'+id).show(); 
+                document.getElementById(id).style.display = 'block';
+                document.getElementById('main_t_num').innerHTML = sto_count;
+           }
+        </script>
+    </body>
+</html>

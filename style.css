@@ -206,7 +206,7 @@
 }
 .box_1 > .b1 > .b1_in_btn{
     font-family: 'IBM Plex Sans KR', sans-serif;
-    text-shadow: 0 1px 1px rgb(0, 0, 0, 0.5);
+    /*text-shadow: 0 1px 1px rgb(0, 0, 0, 0.5);*/
     width: 130px;
     height: 25px;
     line-height: 25px;

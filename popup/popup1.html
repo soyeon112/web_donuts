@@ -212,7 +212,8 @@
                 storename.length = 0; 
                 storetime.length = 0; 
                 storeImgname.length = 0; 
-
+                
+                //데이터가 바뀔때 마다 매장 총 갯수 만큼 돌면서 show되어있던 태그를 hide해줌.
                 for(let i = 0; i < 9 ; i++){
                     if(document.getElementById('storeInfo').children[i].style.display === 'none'){
                         console.log('none');
